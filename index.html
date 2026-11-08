@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#172B4D">
+    <title>HUMA | Human Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-logo">H</div>
+            <div>
+                <h1>HUMA</h1>
+                <span>HUMAN MANAGEMENT</span>
+            </div>
+        </div>
+
+        <div class="company-label">GESTIÓN EMPRESARIAL</div>
+
+        <nav id="main-navigation">
+            <a href="#" class="nav-link active" data-module="inicio">
+                <span>⌂</span> Inicio
+            </a>
+            <a href="#" class="nav-link" data-module="empleados">
+                <span>♙</span> Empleados
+            </a>
+            <a href="#" class="nav-link" data-module="asistencia">
+                <span>◷</span> Asistencia
+            </a>
+            <a href="#" class="nav-link" data-module="nomina">
+                <span>＄</span> Nómina
+            </a>
+            <a href="#" class="nav-link" data-module="permisos">
+                <span>▣</span> Permisos
+            </a>
+            <a href="#" class="nav-link" data-module="reclutamiento">
+                <span>♧</span> Reclutamiento
+            </a>
+            <a href="#" class="nav-link" data-module="desempeno">
+                <span>☆</span> Desempeño
+            </a>
+            <a href="#" class="nav-link" data-module="reportes">
+                <span>▤</span> Reportes
+            </a>
+            <a href="#" class="nav-link" data-module="documentacion">
+                <span>▣</span> Documentación
+            </a>
+            <a href="#" class="nav-link" data-module="empresas">
+                <span>▦</span> Empresas
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-avatar">RH</div>
+            <div class="user-info">
+                <strong>Administrador</strong>
+                <span>Panel de HUMA</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <span class="topbar-label">PLATAFORMA DE RECURSOS HUMANOS</span>
+                <h2 id="page-title">Inicio</h2>
+            </div>
+            <div class="topbar-right">
+                <span id="current-date"></span>
+                <div class="top-avatar">RH</div>
+            </div>
+        </header>
+
+        <section id="dashboard-view" class="view">
+            <div class="welcome">
+                <div>
+                    <span class="eyebrow">PANEL DE CONTROL</span>
+                    <h2>Bienvenido a <span>HUMA</span></h2>
+                    <p>La gestión humana, en un solo lugar.</p>
+                </div>
+                <div class="welcome-decoration">H</div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h3>Resumen general</h3>
+                    <p>Indicadores de tu organización</p>
+                </div>
+            </div>
+
+            <div class="statistics">
+                <div class="stat-card">
+                    <div class="stat-icon">♙</div>
+                    <span>Total de empleados</span>
+                    <strong id="stat-employees">0</strong>
+                    <small>Registros de personal</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">◷</div>
+                    <span>Asistencias registradas</span>
+                    <strong id="stat-attendance">0</strong>
+                    <small>Registros de asistencia</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">▣</div>
+                    <span>Solicitudes de permisos</span>
+                    <strong id="stat-permissions">0</strong>
+                    <small>Solicitudes registradas</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">♧</div>
+                    <span>Candidatos</span>
+                    <strong id="stat-candidates">0</strong>
+                    <small>Personas en reclutamiento</small>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Actividad reciente</h3>
+                            <p>Últimos movimientos registrados</p>
+                        </div>
+                    </div>
+                    <div id="recent-activity" class="activity-list">
+                        <p class="empty-message">Todavía no hay actividad registrada.</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Accesos rápidos</h3>
+                            <p>Funciones principales</p>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <button data-go="empleados">+ Registrar empleado</button>
+                        <button data-go="asistencia">+ Registrar asistencia</button>
+                        <button data-go="permisos">+ Nueva solicitud de permiso</button>
+                        <button data-go="reclutamiento">+ Reclutamiento</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="module-view" class="view" hidden>
+            <div class="module-intro">
+                <div>
+                    <span class="eyebrow" id="module-eyebrow">GESTIÓN HUMA</span>
+                    <h2 id="module-title">Módulo</h2>
+                    <p id="module-description"></p>
+                </div>
+            </div>
+
+            <div class="module-summary" id="module-summary"></div>
+
+            <div class="panel module-panel">
+                <div class="panel-heading module-toolbar">
+                    <div>
+                        <h3 id="form-title">Registrar información</h3>
+                        <p id="form-description">Completa los campos correspondientes.</p>
+                    </div>
+                    <input
+                        type="search"
+                        id="module-search"
+                        placeholder="Buscar por folio, nombre o información..."
+                        aria-label="Buscar registros"
+                    >
+                </div>
+
+                <form id="module-form">
+                    <div id="module-fields" class="form-grid"></div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="secondary-button" id="clear-button">
+                            Limpiar
+                        </button>
+                        <button type="submit" class="primary-button" id="save-button">
+                            Guardar registro
+                        </button>
+                    </div>
+                </form>
+
+                <div class="table-heading">
+                    <h3>Registros</h3>
+                    <span id="record-count">0 registros</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead id="table-head"></thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span>HUMA © 2026</span>
+            <span>Human Management · Versión de demostración</span>
+        </footer>
+    </main>
+</div>
+
+<!-- VENTANA PARA CONSULTAR REGISTROS -->
+<div id="detail-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content">
+        <div class="modal-heading">
+            <div>
+                <span class="eyebrow">INFORMACIÓN DEL REGISTRO</span>
+                <h2>Detalle del registro</h2>
+            </div>
+            <button type="button" class="modal-close" data-close-modal aria-label="Cerrar">×</button>
+        </div>
+        <div id="detail-content" class="detail-content"></div>
+        <div class="modal-actions">
+            <button type="button" class="secondary-button" data-close-modal>Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
